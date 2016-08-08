@@ -18,40 +18,26 @@ public class CrudController {
 	@Autowired
 	DataService dataService;
 
-	@RequestMapping("form")
-	public ModelAndView getForm(@ModelAttribute Users users) {
-		return new ModelAndView("form");
+	@RequestMapping("/login")
+	public ModelAndView getLogin(@ModelAttribute Users users) {
+		return new ModelAndView("login");
+	}
+	
+	@RequestMapping("/loginSuccess")
+	public ModelAndView processLogin(@ModelAttribute Users users) {
+		return new ModelAndView("redirect:success");
+	}
+	
+	@RequestMapping("/register")
+	public ModelAndView getRegister(@ModelAttribute Users users) {
+		return new ModelAndView("register");
 	}
 
-	@RequestMapping("register")
+	@RequestMapping("/registerSuccess")
 	public ModelAndView registerUser(@ModelAttribute Users users) {
 		dataService.insertRow(users);
-		return new ModelAndView("redirect:list");
+		return new ModelAndView("redirect:success");
 	}
 
-	@RequestMapping("list")
-	public ModelAndView getList() {
-		List employeeList = dataService.getList();
-		return new ModelAndView("list", "employeeList", employeeList);
-	}
-
-	@RequestMapping("delete")
-	public ModelAndView deleteUser(@RequestParam int id) {
-		dataService.deleteRow(id);
-		return new ModelAndView("redirect:list");
-	}
-
-	@RequestMapping("edit")
-	public ModelAndView editUser(@RequestParam int id,
-			@ModelAttribute Users users) {
-		Users employeeObject = dataService.getRowById(id);
-		return new ModelAndView("edit", "employeeObject", employeeObject);
-	}
-
-	@RequestMapping("update")
-	public ModelAndView updateUser(@ModelAttribute Users users) {
-		dataService.updateRow(users);
-		return new ModelAndView("redirect:list");
-	}
 
 }
