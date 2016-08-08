@@ -18,23 +18,8 @@ public class DataServiceImpl implements DataService {
 	}
 
 	@Override
-	public List getList() {
-		return dataDao.getList();
-	}
-
-	@Override
 	public Users getRowById(int id) {
 		return dataDao.getRowById(id);
-	}
-
-	@Override
-	public int updateRow(Users users) {
-		return dataDao.updateRow(users);
-	}
-
-	@Override
-	public int deleteRow(int id) {
-		return dataDao.deleteRow(id);
 	}
 
 }
