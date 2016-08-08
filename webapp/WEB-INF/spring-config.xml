@@ -54,7 +54,7 @@
  </bean>
 
 
- <bean id="dataDaoImpl" class="com.beingjavaguys.dao.DataDaoImpl" />
- <bean id="dataServiceImpl" class="com.beingjavaguys.services.DataServiceImpl" />
+ <bean id="dataDaoImpl" class="com.arm.dao.DataDaoImpl" />
+ <bean id="dataServiceImpl" class="com.arm.services.DataServiceImpl" />
 
 </beans>
